@@ -1,0 +1,391 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+wilder@wilder-HP-EliteBook-850-G3:~$ mkdir quests
+wilder@wilder-HP-EliteBook-850-G3:~$ lst
+
+La commande « lst » n'a pas été trouvée, mais il y en a 20 similaires.
+
+wilder@wilder-HP-EliteBook-850-G3:~$ ls
+Bureau  Documents  Images  Modèles  Musique  Public  quests  snap  Téléchargements  Vidéos
+wilder@wilder-HP-EliteBook-850-G3:~$ mkdir -p quests/shell/vegetables quests/shell/fruits
+wilder@wilder-HP-EliteBook-850-G3:~$ ls
+Bureau  Documents  Images  Modèles  Musique  Public  quests  snap  Téléchargements  Vidéos
+wilder@wilder-HP-EliteBook-850-G3:~$ mkdir quests/shell/remove-me quests/shell/delete-me
+wilder@wilder-HP-EliteBook-850-G3:~$ ls quests/shell
+delete-me  fruits  remove-me  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~$ rmdir quests/shell/remove-me quests/shell/delete-me
+wilder@wilder-HP-EliteBook-850-G3:~$ ls
+Bureau  Documents  Images  Modèles  Musique  Public  quests  snap  Téléchargements  Vidéos
+wilder@wilder-HP-EliteBook-850-G3:~$ ls quests/shell
+fruits  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~$ 
+wilder@wilder-HP-EliteBook-850-G3:~$ cd ~/quests/shell
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ touch apple
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ touch abricot
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ touch carrot parsnip cauliflower courgette
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  apple  carrot  cauliflower  courgette  fruits  parsnip  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls -l ~/.bashrc
+-rw-r--r-- 1 wilder wilder 3771 mars   1 14:38 /home/wilder/.bashrc
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ touch ~/.bashrc
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls -l ~/.bashrc
+-rw-r--r-- 1 wilder wilder 3771 mars   2 15:12 /home/wilder/.bashrc
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cp apple banana
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cp apple fruits/orange
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls ; ls fruits
+abricot  apple  banana  carrot  cauliflower  courgette  fruits  parsnip  vegetables
+orange
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls fruits
+orange
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  apple  banana  carrot  cauliflower  courgette  fruits  parsnip  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cp ap* banana fruits/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls fruits
+apple  banana  orange
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cp -R fruits copy-of-fruits
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  apple  banana  carrot  cauliflower  copy-of-fruits  courgette  fruits  parsnip  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls copy-of-fruits
+apple  banana  orange
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cp -R fruits copy-of-fruits /tmp/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ rm ap* banana
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  carrot  cauliflower  copy-of-fruits  courgette  fruits  parsnip  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ rm -r copy-of-fruits
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  carrot  cauliflower  courgette  fruits  parsnip  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mv ca* parsnip courgette vegetables/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls vegetables
+carrot  cauliflower  courgette  parsnip
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mv fruits/orange fruits/grapefruit
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls grapefruit
+ls: impossible d'accéder à 'grapefruit': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  fruits  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls fruits
+apple  banana  grapefruit
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mv vegetables/courgette fruits/kiwi
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls fruits
+apple  banana  grapefruit  kiwi
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls
+abricot  fruits  vegetables
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls vegetables
+carrot  cauliflower  parsnip
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ sudo apt-get install -y curl unzip
+[sudo] Mot de passe de wilder : 
+Lecture des listes de paquets... Fait
+Construction de l'arbre des dépendances       
+Lecture des informations d'état... Fait
+unzip est déjà la version la plus récente (6.0-25ubuntu1).
+unzip passé en « installé manuellement ».
+Les paquets suivants ont été installés automatiquement et ne sont plus nécessaires :
+  libfprint-2-tod1 libllvm10
+Veuillez utiliser « sudo apt autoremove » pour les supprimer.
+Les NOUVEAUX paquets suivants seront installés :
+  curl
+0 mis à jour, 1 nouvellement installés, 0 à enlever et 0 non mis à jour.
+Il est nécessaire de prendre 161 ko dans les archives.
+Après cette opération, 411 ko d'espace disque supplémentaires seront utilisés.
+Réception de :1 http://fr.archive.ubuntu.com/ubuntu focal-updates/main amd64 curl amd64 7.68.0-1ubuntu2.4 [161 kB]
+161 ko réceptionnés en 0s (854 ko/s)
+Sélection du paquet curl précédemment désélectionné.
+(Lecture de la base de données... 186565 fichiers et répertoires déjà installés.)
+Préparation du dépaquetage de .../curl_7.68.0-1ubuntu2.4_amd64.deb ...
+Dépaquetage de curl (7.68.0-1ubuntu2.4) ...
+Paramétrage de curl (7.68.0-1ubuntu2.4) ...
+Traitement des actions différées (« triggers ») pour man-db (2.9.1-1) ...
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ curl -L -o planets.zip https://github.com/WildCodeSchool/quests-resources/blob/master/terminal/planets.zip?raw=true
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   148  100   148    0     0    305      0 --:--:-- --:--:-- --:--:--   304
+100   159  100   159    0     0    252      0 --:--:-- --:--:-- --:--:--   252
+100  293k  100  293k    0     0   206k      0  0:00:01  0:00:01 --:--:-- 6201k
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ unzip planets.zip
+Archive:  planets.zip
+   creating: planets/
+  inflating: planets/mercury.jpeg    
+  inflating: planets/earth.jpeg      
+  inflating: planets/pluto.jpeg      
+  inflating: planets/arrakis.jpeg    
+  inflating: planets/jupiter.jpeg    
+  inflating: planets/venus.jpeg      
+  inflating: planets/mars.jpeg       
+  inflating: planets/cybertron.jpeg  
+  inflating: planets/coruscant.jpeg  
+  inflating: planets/uranus.jpeg     
+  inflating: planets/neptune.jpeg    
+  inflating: planets/saturn.jpeg     
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planet/real/terrestial
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planets/real/terrestial
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planets/real/gas-giants
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planets/real/dwarf-planets
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planets/fictional
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mkdir -p planets/inhabited
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ ls planets
+arrakis.jpeg    cybertron.jpeg  fictional  jupiter.jpeg  mercury.jpeg  pluto.jpeg  saturn.jpeg  venus.jpeg
+coruscant.jpeg  earth.jpeg      inhabited  mars.jpeg     neptune.jpeg  real        uranus.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ mv jupiter.jpeg planets/real
+mv: impossible d'évaluer 'jupiter.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cd dir planets
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ dir planets
+arrakis.jpeg	cybertron.jpeg	fictional  jupiter.jpeg  mercury.jpeg  pluto.jpeg  saturn.jpeg	venus.jpeg
+coruscant.jpeg	earth.jpeg	inhabited  mars.jpeg	 neptune.jpeg  real	   uranus.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell$ cd planets
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv jupiter.jpeg planets/real
+mv: impossible de déplacer 'jupiter.jpeg' vers 'planets/real': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv ca* jupiter.jpeg planets/real
+mv: la cible 'planets/real' n'est pas un répertoire
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv ca* jupiter.jpeg /real
+mv: la cible '/real' n'est pas un répertoire
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv ca* jupiter.jpeg real
+mv: impossible d'évaluer 'ca*': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ ls
+arrakis.jpeg    cybertron.jpeg  fictional  mars.jpeg     neptune.jpeg  real         uranus.jpeg
+coruscant.jpeg  earth.jpeg      inhabited  mercury.jpeg  pluto.jpeg    saturn.jpeg  venus.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv *mars real
+mv: impossible d'évaluer '*mars': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv *mars /real
+mv: impossible d'évaluer '*mars': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv mars.jpeg /real
+mv: impossible de déplacer 'mars.jpeg' vers '/real': Permission non accordée
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ sudo mv mars.jpeg /real
+[sudo] Mot de passe de wilder : 
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv mars.jpeg real
+mv: impossible d'évaluer 'mars.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ ls
+arrakis.jpeg    cybertron.jpeg  fictional  mercury.jpeg  pluto.jpeg  saturn.jpeg  venus.jpeg
+coruscant.jpeg  earth.jpeg      inhabited  neptune.jpeg  real        uranus.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv mercury.jpeg real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv saturn.jpeg real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv venus.jpeg neptune.jpeg uranus.jpeg real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ ls
+arrakis.jpeg  coruscant.jpeg  cybertron.jpeg  earth.jpeg  fictional  inhabited  pluto.jpeg  real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv arr* coru* cyb* fictional
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv ear* plu* real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cd real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp ea* planets/inhabited
+cp: impossible de créer le fichier standard 'planets/inhabited': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp ea* real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp ea* planets/inhabited
+cp: impossible de créer le fichier standard 'planets/inhabited': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp ea* inhabited/
+cp: impossible de créer le fichier standard 'inhabited/': N'est pas un dossier
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp ea* planets/inhabited/
+cp: impossible de créer le fichier standard 'planets/inhabited/': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd planets
+bash: cd: planets: Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd..
+cd.. : commande introuvable
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd ..
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp earth.jpeg planets/inhabited/
+cp: impossible d'évaluer 'earth.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cd real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg planets/inhabited/
+cp: impossible de créer le fichier standard 'planets/inhabited/': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg planets/real
+cp: impossible de créer le fichier standard 'planets/real': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg
+cp: opérande de fichier cible manquant après 'earth.jpeg'
+Saisissez « cp --help » pour plus d'informations.
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp --help
+Utilisation : cp [OPTION]... [-T] SOURCE DEST
+         ou : cp [OPTION]... SOURCE... RÉPERTOIRE
+         ou : cp [OPTION]... -t RÉPERTOIRE SOURCE...
+Copier la SOURCE vers DEST ou plusieurs SOURCEs vers RÉPERTOIRE.
+
+Les arguments obligatoires pour les options longues le sont aussi pour les
+options courtes.
+  -a, --archive                identique à -dR --preserve=all
+      --attributes-only        ne pas copier les données du fichier, seulement
+                                 les attributs
+      --backup[=CONTRÔLE]      archiver chaque fichier de destination
+  -b                           comme --backup mais n'accepte pas d'argument
+      --copy-contents          copier le contenu des fichiers spéciaux en mode
+                                 récursif
+  -d                           identique à --no-dereference --preserve=links
+  -f, --force                  si un fichier de destination existe et ne peut
+                                 être ouvert, alors le supprimer et réessayer
+                                 (cette option est ignorée si l'option -n est
+                                 aussi utilisée)
+  -i, --interactive            demander confirmation avant d'écraser (annule
+                                 l'option -n précédente)
+  -H                           suivre les liens symboliques en ligne de commande
+                                 dans SOURCE
+  -l, --link                   lier les fichiers au lieu de les copier
+  -L, --dereference            toujours suivre les liens symboliques dans SOURCE
+  -n, --no-clobber             ne pas écraser un fichier existant (annule
+                                 l'option -i précédente)
+  -P, --no-deference           ne jamais suivre les liens symboliques dans SOURCE
+  -p                           identique à --preserve=mode,ownership,timestamps
+      --preserve[=LISTE_ATT]   préserver les attributs indiqués (par défaut
+                                 « mode,ownership,timestamps ») et si possible
+                                 les attributs supplémentaires « context »,
+                                 « links », « xattr » et « all »
+      --no-preserve=LISTE_ATT  ne pas préserver les attributs spécifiques
+      --parents                utiliser le nom du fichier source complet à
+                                 l'intérieur de RÉPERTOIRE
+  -R, -r, --recursive          copier récursivement les répertoires
+      --reflink[=QUAND]        contrôler les copies clones/COW (Copy On Write). Voir ci-dessous
+      --remove-destination     supprimer chaque fichier de destination existant
+                                 avant d'essayer de l'ouvrir (par opposition à
+                                 --force)
+      --sparse=QUAND           contrôler la création des fichiers partiellement
+                                 alloués. Voir ci-dessous
+      --strip-trailing-slashes enlever les « / » de terminaison de chaque
+                                 argument SOURCE
+  -s, --symbolic-link          créer des liens symboliques au lieu d'une copie
+  -S, --suffix=SUFFIXE         remplacer le suffixe habituel d'archivage
+      --target-directory=RÉPERTOIRE  copier tous les arguments SOURCE dans
+                                     RÉPERTOIRE
+  -T, --no-target-directory    traiter DEST comme un fichier normal
+  -u, --update                 ne copier que quand le fichier SOURCE est plus
+                                 récent que le fichier de destination ou quand
+                                 le fichier de destination est manquant
+  -v, --verbose                expliquer ce qui est fait
+  -x, --one-file-system        rester sur ce système de fichiers
+  -Z                           définir le contexte de sécurité SELinux du
+                                 fichier de destination au type par défaut
+      --context[=CTX]          comme -Z ou, si CTX est indiqué, définir le
+                                 contexte de sécurité SELinux ou SMACK à CTX
+      --help     afficher l'aide et quitter
+      --version  afficher des informations de version et quitter
+
+Par défaut, les fichiers SOURCE partiellement alloués sont détectés à l'aide
+d'une heuristique grossière et le fichier DEST correspondant est aussi
+partiellement alloué. C'est le comportement sélectionné par --sparse=auto.
+Indiquez --sparse=always pour créer un fichier DEST partiellement alloué
+lorsque le fichier SOURCE contient une assez longue séquence d'octets nuls.
+Utilisez --sparse=never pour inhiber la création de fichiers partiellement
+alloués.
+
+Si --reflink[=always] est indiquée, réaliser une copie légère, où les blocs de
+données ne sont copiés que lors d'une modification. Si c'est impossible, la
+copie échoue, ou, si --reflink=auto est indiqué, elle se rabat sur une copie
+classique.
+
+Le suffixe d'archive est « ~ », sauf s'il est défini autrement avec --suffix ou
+SIMPLE_BACKUP_SUFFIX. La méthode du contrôle de version peut être sélectionnée
+par l'option --backup ou par la variable d'environnement VERSION_CONTROL.
+Les valeurs possibles sont les suivantes :
+
+  none, off       ne jamais archiver (même si --backup est utilisée)
+  numbered, t     effectuer des archives numérotées
+  existing, nil   numéroter si des archives numérotées existent déjà, se
+                    comporter comme « simple » dans le cas contraire
+  simple, never   effectuer toujours des archives simples
+
+cp réalise une archive de SOURCE dans le cas particulier où les options
+« force » et « backup » sont utilisées et que SOURCE et DEST portent le
+même nom qu'un fichier normal existant.
+
+Aide en ligne de GNU coreutils : <https://www.gnu.org/software/coreutils/>
+Signalez les problèmes de traduction de « cp » à : <traduc@traduc.org>
+Documentation complète à : <https://www.gnu.org/software/coreutils/cp>
+ou disponible localement via: info '(coreutils) cp invocation'
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd planets/real/ea* planets/inhabited
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd planets/real/eath.jpeg planets/inhabited
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd planets/real/eath.jpeg planets/inhabited/
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd eath.jpeg planets/inhabited/
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd ~eath.jpeg planets/inhabited/
+bash: cd: trop d'arguments
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg planets/real/earth.jpeg
+cp: impossible de créer le fichier standard 'planets/real/earth.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg planets/real/
+cp: impossible de créer le fichier standard 'planets/real/': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg planets/real
+cp: impossible de créer le fichier standard 'planets/real': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cp earth.jpeg
+cp: opérande de fichier cible manquant après 'earth.jpeg'
+Saisissez « cp --help » pour plus d'informations.
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd..
+cd.. : commande introuvable
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd ..
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ ls
+fictional  inhabited  real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp earth.jpeg planets/real/earth.jpeg
+cp: impossible d'évaluer 'earth.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp earth.jpeg inhabited/earth.jpeg
+cp: impossible d'évaluer 'earth.jpeg': Aucun fichier ou dossier de ce type
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp real/earth.jpeg inhabited/earth.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cd real
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ ls
+dwarf-planets  gas-giants    mercury.jpeg  pluto.jpeg  saturn.jpeg  uranus.jpeg
+earth.jpeg     jupiter.jpeg  neptune.jpeg  real        terrestial   venus.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ mv earth.jpeg terrestial/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ mv jupiter.jpeg saturn.jpeg gas-giants/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ mv mercury.jpeg venus.jpeg terrestial/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ mv uranus.jpeg neptune.jpeg dwarf-planets/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ ls
+dwarf-planets  gas-giants  pluto.jpeg  real  terrestial
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ rm pluto.jpeg 
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ ls
+dwarf-planets  gas-giants  real  terrestial
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ rm real 
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ ls
+dwarf-planets  gas-giants  terrestial
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ find
+.
+./terrestial
+./terrestial/venus.jpeg
+./terrestial/earth.jpeg
+./terrestial/mercury.jpeg
+./dwarf-planets
+./dwarf-planets/neptune.jpeg
+./dwarf-planets/uranus.jpeg
+./gas-giants
+./gas-giants/saturn.jpeg
+./gas-giants/jupiter.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets/real$ cd ..
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ find
+.
+./real
+./real/terrestial
+./real/terrestial/venus.jpeg
+./real/terrestial/earth.jpeg
+./real/terrestial/mercury.jpeg
+./real/dwarf-planets
+./real/dwarf-planets/neptune.jpeg
+./real/dwarf-planets/uranus.jpeg
+./real/gas-giants
+./real/gas-giants/saturn.jpeg
+./real/gas-giants/jupiter.jpeg
+./inhabited
+./inhabited/earth.jpeg
+./fictional
+./fictional/cybertron.jpeg
+./fictional/arrakis.jpeg
+./fictional/coruscant.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ mv fictional/c
+coruscant.jpeg  cybertron.jpeg  
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp fictional/cybertron.jpeg inhabited/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp fictional/arrakis.jpeg inhabited/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ cp fictional/coruscant.jpeg inhabited/
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ find
+.
+./real
+./real/terrestial
+./real/terrestial/venus.jpeg
+./real/terrestial/earth.jpeg
+./real/terrestial/mercury.jpeg
+./real/dwarf-planets
+./real/dwarf-planets/neptune.jpeg
+./real/dwarf-planets/uranus.jpeg
+./real/gas-giants
+./real/gas-giants/saturn.jpeg
+./real/gas-giants/jupiter.jpeg
+./inhabited
+./inhabited/cybertron.jpeg
+./inhabited/arrakis.jpeg
+./inhabited/earth.jpeg
+./inhabited/coruscant.jpeg
+./fictional
+./fictional/cybertron.jpeg
+./fictional/arrakis.jpeg
+./fictional/coruscant.jpeg
+wilder@wilder-HP-EliteBook-850-G3:~/quests/shell/planets$ 
